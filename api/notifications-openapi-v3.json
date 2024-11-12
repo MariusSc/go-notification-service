@@ -1,0 +1,126 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0",
+    "title": "notification service",
+    "description": "API to dispatch and distribute notifications to various messaging systems, like slack, discord.\r\n\r\n",
+    "contact": {
+      "name": "",
+      "url": ""
+    },
+    "license": {
+      "url": "https://opensource.org/license/mit",
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api/v1",
+      "description": "local development server"
+    }
+  ],
+  "paths": {
+    "/notifications": {
+      "post": {
+        "tags": [
+          "notifications"
+        ],
+        "summary": "Send notification",
+        "description": "Sends a notification to the notification service. The notification service returns immediately with a 202 Accepted response. The notifications are being dispatched to the reiver systems in the background.",
+        "operationId": "post-notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostNotificationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostNotificationRequest"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "notification-api"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "PostNotificationRequest": {
+        "type": "object",
+        "title": "PostNotificationRequest",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "Warning",
+              "Info",
+              "Debug",
+              "Error",
+              "Fatal"
+            ],
+            "description": "Describes the log level of the notification"
+          },
+          "title": {
+            "type": "string",
+            "description": "A short description of the notification",
+            "minLength": 1,
+            "maxLength": 100,
+            "example": "Backup failed"
+          },
+          "description": {
+            "type": "string",
+            "description": "A detailed description of the notification"
+          }
+        },
+        "required": [
+          "type",
+          "title",
+          "description"
+        ]
+      },
+      "NotificationResponse": {
+        "type": "object",
+        "title": "NotificationResponse",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Ok"
+          }
+        }
+      }
+    }
+  }
+}
