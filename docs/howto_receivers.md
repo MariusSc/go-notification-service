@@ -25,8 +25,13 @@ func NewTwilioReceiver() *TwilioReceiver {
 }
 
 func (instance *TwilioReceiver) Receive(notification messaging.Notification) error {
-
-    // TODO all logic goes here
+	shouldSend := notification.Type == "Fatal"
+	if !shouldSend {
+		slog.Debug("Ignore unsupported notification type", "notification", notification)
+		return nil
+	}
+	
+    //  Implement Twilio integration here
 }
 ```
 
