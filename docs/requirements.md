@@ -1,7 +1,6 @@
 # Requirements
-A REST/JSON service that dispatches notifications to 3rd party chat or message applications (receiver systems).
 
-## Functional and Non-Functional bullet points
+## Functional and Non-Functional
 - Maximum of 20 concrete receivers
 - Maximum of 100 senders
 - SLO - Availability: 99%

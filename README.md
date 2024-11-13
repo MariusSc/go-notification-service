@@ -20,11 +20,14 @@ Learning a new programming language is an evolutionary process. So I am going to
 # Notification Service
 
 ## System Design
-
-### Context diagram
-The diagram uses the [C4 notation](https://c4model.com/) diagram 
+A REST/JSON based service that dispatches notifications to 3rd party (chat or message) applications (receiver systems). 
+The service should be extensible in the sense of integrating more receiver systems and custom routing rules of 
+notifications.  
 
 ![Notification Service](/docs/assets/NotificationServiceComponents.png)
+_The diagram uses [C4 notation](https://c4model.com/)_
+
+**TODO describe each building block**
 
 ## Considerations and future improvements
 
