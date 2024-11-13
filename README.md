@@ -2,8 +2,8 @@
 This repository contains my first GO project. Having a strong object-oriented background with .Net/C# I am curious to start with Golang.
 While I am doing a lot of googling (with a good amount of trial & error) to learn the language, I am also reading these two books:
 
-* [Learning GO](https://www.oreilly.com/library/view/learning-go-2nd)
-* [100 Go Mistakes and How to Avoid Them](https://www.oreilly.com/library/view/100-go-mistakes)
+* [Learning GO](https://www.amazon.de/Learning-Go-Idiomatic-Real-World-Programming/dp/1098139291)
+* [100 Go Mistakes and How to Avoid Them](https://www.amazon.de/100-Mistakes-How-Avoid-Them/dp/1617299596)
 
 The learning objective is to implement a notification service (HTTP service) that acts as a message dispatcher to various messaging applications (e.g. MS Teams, Slack, ...).
 Learning a new programming language is an evolutionary process. So I am going to start with a very simple solution that I will expand over time.
