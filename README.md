@@ -25,6 +25,7 @@ The service should be extensible in the sense of integrating more receiver syste
 notifications.  
 
 ![Notification Service](/docs/assets/NotificationServiceComponents.png)
+
 _The diagram uses [C4 notation](https://c4model.com/)_
 
 **TODO describe each building block**
